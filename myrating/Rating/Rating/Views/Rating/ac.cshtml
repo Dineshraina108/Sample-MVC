@@ -1,0 +1,103 @@
+﻿@model Rating.ViewModels.vmrating
+
+@{
+    ViewBag.Title = "ac";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<link href="~/Content/star.css" rel="stylesheet" />
+<style>
+
+</style>
+<script>
+  
+</script>
+<h2>Rating</h2>
+@using (Html.BeginForm("act", "Rating", FormMethod.Get))
+{
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("Actorname", new SelectList(ViewBag.data, "RId", "Aname"))
+                
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Rate", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("Rate", new List<SelectListItem
+     { new SelectListItem { Text = "*", Value = "1", Selected=true},
+       new SelectListItem { Text = "**", Value = "2"},
+       new SelectListItem { Text = "***", Value = "3"},
+        new SelectListItem { Text = "****", Value = "4"},
+         new SelectListItem { Text = "*****", Value = "5"}
+       }, "Select Rate")*@
+                <div class="txt-center">
+                    <form>
+                        <div class="rating">
+                            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                            <label for="star5">☆</label>
+                            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                            <label for="star4">☆</label>
+                            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                            <label for="star3">☆</label>
+                            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                            <label for="star2">☆</label>
+                            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                            <label for="star1">☆</label>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="save" class="btn btn-default" formaction="act" />
+            </div>
+        </div>
+    </div>
+}
+
+<br /><br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        <th>
+            @Html.DisplayName("Rate")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ra)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "edit", new { id = item.RId }) |
+                @Html.ActionLink("Details", "detail", new { id = item.RId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RId })
+            </td>
+          
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "add")
+</p>

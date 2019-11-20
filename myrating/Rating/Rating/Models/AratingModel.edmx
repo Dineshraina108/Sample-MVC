@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AratingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Arating">
+          <Key>
+            <PropertyRef Name="RId" />
+          </Key>
+          <Property Name="RId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aname" Type="varchar(max)" Nullable="false" />
+          <Property Name="Arate" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Rating.dbo.Anamev' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Anamev">
+          <Key>
+            <PropertyRef Name="RId" />
+            <PropertyRef Name="Aname" />
+          </Key>
+          <Property Name="RId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aname" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AratingModelStoreContainer">
+          <EntitySet Name="Arating" EntityType="Self.Arating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Anamev" EntityType="Self.Anamev" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Anamev].[RId] AS [RId], 
+    [Anamev].[Aname] AS [Aname]
+    FROM [dbo].[Anamev] AS [Anamev]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AratingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Arating">
+          <Key>
+            <PropertyRef Name="RId" />
+          </Key>
+          <Property Name="RId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Arate" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Anamev">
+          <Key>
+            <PropertyRef Name="RId" />
+            <PropertyRef Name="Aname" />
+          </Key>
+          <Property Name="RId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AratingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aratings" EntityType="Self.Arating" />
+          <EntitySet Name="Anamevs" EntityType="Self.Anamev" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AratingModelStoreContainer" CdmEntityContainer="AratingEntities">
+          <EntitySetMapping Name="Aratings">
+            <EntityTypeMapping TypeName="AratingModel.Arating">
+              <MappingFragment StoreEntitySet="Arating">
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Arate" ColumnName="Arate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Anamevs">
+            <EntityTypeMapping TypeName="AratingModel.Anamev">
+              <MappingFragment StoreEntitySet="Anamev">
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
