@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center;">Welcome To Rating Page</h1> <br /><br />
+<h4>Welcome @Session["Username"] </h4>
+<br /><br />
+<div style="text-align:center;">
+    @Html.ActionLink("Ready To View Rating", "ac")
+</div>

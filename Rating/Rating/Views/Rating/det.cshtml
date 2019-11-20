@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Rating.Models.Arating>
+
+@{
+    ViewBag.Title = "det";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid webGrid = new WebGrid(source: Model);
+}
+
+<h2>Rating</h2>
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+            .Grid th {
+                background-color: #F7F7F7;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid, .Grid table td {
+                border: 0px solid #ccc;
+            }
+
+                .Grid th a, .Grid th a:visited {
+                    color: #333;
+                }
+    </style>
+</head>
+<body>
+    @webGrid.GetHtml(
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+                 webGrid.Column("RID", "RId"),
+                 webGrid.Column("Aname", "Aname"),
+                 webGrid.Column("Arate", "Arate"),
+                 webGrid.Column(format:@<span class="link">
+               
+                 @Html.ActionLink("Edit", "Edit", new { id = 2 }) 
+                 @Html.ActionLink("Details", "detail", new { id = 1})
+                </span> )
+          ))
+</body>
+</html>*@
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Aname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "edit", new { id=item.RId }) |
+            @Html.ActionLink("Details", "detail", new { id=item.RId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RId })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "add")
+</p>

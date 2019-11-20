@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Rating.Models.Arating>
+
+@{
+    ViewBag.Title = "act";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>act</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Aname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arate)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RId })
+        </td>*@
+    </tr>
+}
+
+</table>
