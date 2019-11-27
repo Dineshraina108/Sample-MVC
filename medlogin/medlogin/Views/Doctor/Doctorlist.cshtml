@@ -1,0 +1,70 @@
+﻿@model IEnumerable<medlogin.Models.Doctorlist>
+
+@{
+    ViewBag.Title = "Doctorlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center;">Doctor Details</h2>
+<br />
+@using (Html.BeginForm("Doctorlist", "Doctor", FormMethod.Get))
+{
+    <div class="search">
+        @*<b> Search Doctors: </b> @Html.RadioButton("option", "Doctorname") <text> Doctor Name </text>  @Html.RadioButton("option", "Specialist")<text>Specialist</text>*@
+        <b> Doctor Name : </b> @Html.TextBox("search") <input type="submit" name="submit" value="Search" /> &nbsp;&nbsp;&nbsp;&nbsp;
+        <b> Specialist : </b> @Html.TextBox("text") <input type="submit" name="spec" value="Search" formaction="Doctorlist"/> &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+}
+ <br />
+<p>
+    @Html.ActionLink("Create New", "Doctorcreate")
+</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctorname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobileno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emailid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctorname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobileno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emailid)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DoctorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DoctorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DoctorId })
+        </td>*@
+    </tr>
+}
+</table>
+<style>
+    a {
+        color:#9400D3;
+        font-size:18px;
+    }
+  .search {
+       font-size:18px;
+   }
+</style>

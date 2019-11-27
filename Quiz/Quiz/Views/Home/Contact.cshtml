@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Quiz Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+ 
+</style>
+<h2>Welcome to Quiz</h2>
+   <h4>Please select one type for test</h4><br />
+@using (Html.BeginForm("Contact", "Home", FormMethod.Get))
+{
+    <div class="radio">
+        @Html.RadioButton("option", "apps") &nbsp; <text style="font-size:24px;"><b>Apptitude</b></text> <br /><br />
+        @Html.RadioButton("option", "tech") &nbsp; <text style="font-size:24px;"><b>Technical</b></text> <br /><br />
+        <div style="text-align:left; margin-left:20%"> <input type="submit" name="submit" value="Select" /> </div>
+     </div>
+ }

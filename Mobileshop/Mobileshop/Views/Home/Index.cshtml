@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<br /><br />
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+<link href="~/Content/css/Content.css" rel="stylesheet" />
+<script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        $("#slideshow > div:gt(0)").hide();
+        setInterval(function()
+        {
+            $('#SlideshowImages > div:first').fadeOut(2000).next().fadeIn(500).end().appendTo('#SlideshowImages');
+        }, 2000);
+    });
+</script>
+<style type="text/css" style="display: none !important;">
+    #SlideshowImages {
+        margin: 50px auto;
+        position: relative;
+        width: 605px;
+        height: 305px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+        #SlideshowImages > div {
+            position: center;
+            top: 3px;
+            left: 4px;
+            right: 2px;
+            bottom: 3px;
+        }
+</style>
+<div id="SlideshowImages">
+    <div><img src="~/Content/images/mobile/m1.png" height="300" width="600" /></div>
+    <div><img src="~/Content/images/mobile/m3.jpg" height="300" width="600" /></div>
+    <div><img src="~/Content/images/mobile/m4.jpg" height="300" width="600"/></div>
+    <div><img src="~/Content/images/mobile/m7.jpg" height="300" width="600" /> </div>
+    <div><img src="~/Content/images/mobile/m8.jpg" height="300" width="600" /></div>
+    <div><img src="~/Content/images/mobile/m9.jpeg" height="300" width="600" /></div>
+</div> 
+<h2 style="text-align:center;">Welcome to my page</h2>
+
+    

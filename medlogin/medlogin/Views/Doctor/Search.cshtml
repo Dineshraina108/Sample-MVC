@@ -1,0 +1,38 @@
+﻿@model medlogin.Models.Doctorlist
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link href="~/Content/css/themes/base/jquery.ui.all.css" rel="stylesheet" />
+
+    <script src="~/Content/js/jquery-1.4.2.js"></script>
+    <script src="~/Content/js/jquery-ui-1.8.2.custom.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#productName').autocomplete({
+                source: '@Url.Action("Search", "Doctor")'
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+    <fieldset>
+        <legend>Search Product</legend>
+        <input type="text" id="productName" placeholder="Input your keyword">
+    </fieldset>
+
+</body>
+</html>
+

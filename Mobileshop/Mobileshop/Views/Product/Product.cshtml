@@ -1,0 +1,61 @@
+﻿@model Mobileshop.Models.Product
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Product</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="background-image:url(../../Content/images/bg/plain2.jpg); background-size:cover; height:470px;">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="padding-left:270px; text-align:center; padding-top:40px;">
+            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-left:270px; text-align:center; padding-top:40px;">
+            @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-left:270px; text-align:center; padding-top:40px;">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-left:270px; text-align:center; padding-top:40px;">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-left:330px; padding-top:20px;">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ADD" class="btn btn-default" onclick="alert('Product added');" />
+                <input type="submit" value="Cancel" class="btn btn-default" onclick="confirm('Are you exist');" formaction="Home/Cancel"/>
+            </div>
+            <div>
+                @Html.ActionLink("Back to Home", "Index")
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,14 @@
+﻿@model Quiz.ViewModels.Evaluation
+
+@{
+    ViewBag.Title = "Quizpage1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quiz 24</h2>
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(x => x.Questions)
+<a href = "~/Views/Home/Editor Templates/quiz1vm.cshtml"> </a>
+    <input type="submit" />
+}

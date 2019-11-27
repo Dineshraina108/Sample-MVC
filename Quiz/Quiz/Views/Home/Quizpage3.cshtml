@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Quiz.Models.Answer>
+
+@{
+    ViewBag.Title = "Quizpage3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quizpage3</h2>
+
+<p>
+    @Html.ActionLink("Create New", "anscreate")
+</p>
+<table class="table">
+    <tr>
+        <th>Q.No</th>
+        <th>
+            @Html.RadioButtonFor(m => m.a, "ans1") @Html.DisplayNameFor(model => model.ans1)
+   
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ans2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ans3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ans4)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Correctans)
+        </th>*@
+        <th></th>
+    </tr>
+    @{ var i = 0;}
+@foreach (var item in Model) {
+    i = i + 1;
+    <tr>
+        <td>@i.</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ans1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ans2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ans3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ans4)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Correctans)
+        </td>*@
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })
+        </td>*@
+    </tr>
+}
+
+</table>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Technical";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Technical</h2>
+
+<h3>Please select Language to attend test</h3><br />
+@using (Html.BeginForm("Contact", "Home", FormMethod.Get))
+{
+    <div class="radio">
+        @Html.RadioButton("option", "C") &nbsp; <text style="font-size:24px;"><b>C</b></text> <br /><br />
+        @Html.RadioButton("option", "C++") &nbsp; <text style="font-size:24px;"><b>C++</b></text> <br /><br />
+        <div style="text-align:left; margin-left:20%"> <input type="submit" name="submit" value="Select" /> </div>
+    </div>
+}

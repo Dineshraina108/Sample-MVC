@@ -1,0 +1,57 @@
+﻿@model Quiz.ViewModels.sample
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+ @{var qid = 0;
+   var ans = 0; }
+<div>
+    @for (var i = 0; i < Model.Books.Count; i++)
+    {
+        qid = Model.Books[i].QuestionId;
+        @Model.Books[i].Question1;
+            foreach (var j in Model.Customers)
+            {
+            ans = j.QuestionId;
+            if (ans == qid)
+            {
+              
+            <table>
+        <tr>
+            <td>
+                @Html.RadioButton("option",j.Answer, new { id = j.QuestionId})
+                @j.Answer
+            </td>
+           
+        </tr>
+    </table>
+
+            @*@Html.RadioButtonFor(m => m.Customers[j].ans1, "A")*@
+            @*@Html.RadioButton("option", j.Answer)
+                @j.Answer*@
+            @*@Html.RadioButtonFor(m => m.Customers[j].ans2, "B")
+                @Html.RadioButton("option", Model.Customers[j].ans2)*@
+            @*@Model.Customers[j].ans2*@
+            @*@Html.RadioButtonFor(m => m.Customers[j].ans3, "C")
+                @Html.RadioButton("option", Model.Customers[j].ans3)*@
+            @*@Model.Customers[j].ans3*@
+            @*@Html.RadioButtonFor(m => m.Customers[j].ans4, "D")
+                @Html.RadioButton("option", Model.Customers[j].ans4)*@
+            @*@Model.Customers[j].ans4*@
+            }
+            else
+            {
+            continue;
+            }
+          }
+       }
+    </div>
+
+
+
+
+

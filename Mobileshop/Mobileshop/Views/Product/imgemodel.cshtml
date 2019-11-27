@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "imgemodel";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>imgemodel</h2>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+<link href="~/Content/css/Content.css" rel="stylesheet" />
+<script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        $("#slideshow > div:gt(0)").hide();
+        setInterval(function()
+        {
+            $('#SlideshowImages > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#SlideshowImages');
+        }, 2000);
+    });
+</script>  
+<style type="text/css" style="display: none !important;">
+    #SlideshowImages {
+        margin: 50px auto;
+        position: relative;
+        width: 605px;
+        height: 305px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+        #SlideshowImages > div {
+            position: center;
+            top: 3px;
+            left: 4px;
+            right: 2px;
+            bottom: 3px;
+        }
+</style>
+  
+<div id="SlideshowImages">  
+    <div><img src="~/Content/images/519913.jpg" height="300" width="600" /> </div>
+    <div><img src="~/Content/images/back.jpg" height="300" width="600" /> </div>
+    <div><img src="~/Content/images/images.jpg" height="300" width="600" /> </div>
+</div> 

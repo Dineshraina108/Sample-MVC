@@ -1,0 +1,19 @@
+﻿@model Quiz.ViewModels.quiz1vm
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<div>
+    @Html.HiddenFor(x => x.ID)
+    <h3> @Model.QuestionText </h3>
+    @foreach (var a in Model.Answers)
+    {
+        <p>
+            @Html.RadioButtonFor(b => b.SelectedAnswer, a.ID)  @a.AnswerText
+        </p>
+    }
+</div>

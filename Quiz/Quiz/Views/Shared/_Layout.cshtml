@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Quiz Test</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        a {
+            color:blue;
+            font-family:Arial;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body style="background-image:url('../../Content/images/bg1.jpg'); background-size:cover;">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li> @Html.ActionLink("Home", "Index", "Home")</li>
+                    <li> @Html.ActionLink("Apptitude", "apps", "Home")</li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Technical <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("C", "Quizpage2", "Home")</li>
+                            <li>@Html.ActionLink("C++", "Quizpage3", "Home")</li>
+                        </ul>
+                    </li>
+                  </ul>
+                <ul class="nav navbar-header" style="text-align:center; left:40%; position:absolute;" >
+                    <li><img src="~/Content/images/Cool Text - Quiz Test 340986917126889.png" style="align-content:center; width:300px; height:50px; text-align:center  " /></li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="align-content:center; text-align:center; font-family:'Times New Roman'; font-size:15px;"> <b>Powered by dinesh kumar <br /> Zencorp Techno solutions</b></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
